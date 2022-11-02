@@ -1,2 +1,7 @@
-valid_email = 'viksin376@yandex.ru'
-valid_password = 'Rkb[Ntc23'
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+valid_email = os.getenv('valid_email')
+valid_password = os.getenv('valid_password')
