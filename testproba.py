@@ -66,7 +66,7 @@ def test_get_all_pets_with_valid_key(filter = ''):
     assert status == 200
     assert len(result['pets']) > 0
 
-def test_add_new_pet_with_valid_data(name = 'Кроль', animal_type = 'ангарский кролик',
+def test_add_pet_with_valid_data(name = 'Кроль', animal_type = 'ангарский кролик',
                                      age = '3', pet_photo = 'images/P1040103.jpg'):
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
     _, auth_key = pf.get_api_key(valid_email, valid_password)
@@ -74,7 +74,7 @@ def test_add_new_pet_with_valid_data(name = 'Кроль', animal_type = 'анг�
     assert status == 200
     assert result['name'] == name
 
-def test_get_api_key_for_valid_user(email=valid_email, password=valid_password):
+def test_get_api_key_for_valid_users(email=valid_email, password=valid_password):
     """ Проверяем что запрос api ключа возвращает статус 200 и в тезультате содержится слово key"""
 
     # Отправляем запрос и сохраняем полученный ответ с кодом статуса в status, а текст ответа в result
@@ -85,7 +85,7 @@ def test_get_api_key_for_valid_user(email=valid_email, password=valid_password):
     assert 'key' in result
 
 
-def test_get_all_pets_with_valid_key(filter=''):
+def test_get_all_pets_with_valid_keys(filter=''):
     """ Проверяем что запрос всех питомцев возвращает не пустой список.
     Для этого сначала получаем api ключ и сохраняем в переменную auth_key. Далее используя этого ключ
     запрашиваем список всех питомцев и проверяем что список не пустой.
@@ -98,7 +98,7 @@ def test_get_all_pets_with_valid_key(filter=''):
     assert len(result['pets']) > 0
 
 
-def test_add_new_pet_with_valid_data(name='Барбоскин', animal_type='двортерьер',
+def test_add_new_pets_with_valid_data(name='Барбоскин', animal_type='двортерьер',
                                      age='4', pet_photo='images/cat1.jpg'):
     """Проверяем что можно добавить питомца с корректными данными"""
 
