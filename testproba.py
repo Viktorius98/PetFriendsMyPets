@@ -1,3 +1,7 @@
+import json
+
+import requests
+
 from api import PetFriends
 from settings import valid_email, valid_password
 import os
@@ -47,14 +51,16 @@ def test_add_photo_of_pet(self, auth_key: json, pet_id: str, pet_photo: str) -> 
         result = res.text
     return status, result
 
-def test_get_api_key_user(email = valid_email, password = valid_password)
+def test_get_api_key_user(email = valid_email, password = valid_password):
+
     """Проверяем что код статуса запроса 200 и в переменной result
     содержится слово key"""
+
     status, result = pf.get_api_key(email, password)
     assert  status == 200
     assert 'key' in result
 
-def test_get_all_pets_with_valid_key(filter = '')
+def test_get_all_pets_with_valid_key(filter = ''):
     _, auth_key = pf.get_api_key(valid_email, valid_password)
     status, result = pf.get_list_of_pets(auth_key, filter)
     assert status == 200
