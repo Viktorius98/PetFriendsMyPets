@@ -3,7 +3,7 @@ import requests
 def get_key():
     # переменные email и password нужно заменить своими учетными данными
     response = requests.post(url='https://petfriends.skillfactory.ru/login',
-                             data={"email": email, "pass": password})
+                             data={"email": 'viksin376@yandex.ru', "pass": 'Rkb[Ntc23'})
     assert response.status_code == 200, 'Запрос выполнен неуспешно'
     assert 'Cookie' in response.request.headers, 'В запросе не передан ключ авторизации'
     return response.request.headers.get('Cookie')
