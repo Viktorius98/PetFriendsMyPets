@@ -1,16 +1,16 @@
 import time
 
 
-def test_search_example(selenium):
+def test_search_example(driver):
     """ Search some phrase in google and make a screenshot of the page. """
 
     # Open google search page:
-    selenium.get('https://google.com')
+    driver.get('https://google.com')
 
     time.sleep(5)  # just for demo purposes, do NOT repeat it on real projects!
 
     # Find the field for search text input:
-    search_input = selenium.find_element_by_name('q')
+    search_input = driver.find_element("name", 'q')
 
 
     # Enter the text for search:
@@ -20,11 +20,11 @@ def test_search_example(selenium):
     time.sleep(5)  # just for demo purposes, do NOT repeat it on real projects!
 
     # Click Search:
-    search_button = selenium.find_element_by_name('btnK')
+    search_button = driver.find_element("name", 'btnK')
     search_button.submit()
 
     time.sleep(10)  # just for demo purposes, do NOT repeat it on real projects!
 
     # Make the screenshot of browser window:
-    selenium.save_screenshot('result.png')
+    driver.save_screenshot('result.png')
 
